@@ -1,0 +1,21 @@
+{
+  "name": "labecommerce",
+  "version": "1.0.0",
+  "description": ":construction: Projeto Labecommerce-backend Labenu Turma Ammal A",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karineveppo/labecommerce.git"
+  },
+  "keywords": [],
+  "author": "Karine Veppo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karineveppo/labecommerce/issues"
+  },
+  "homepage": "https://github.com/karineveppo/labecommerce#readme"
+}
