@@ -41,3 +41,23 @@ app.listen(3003, () => {
 app.get("/ping", (req: Request, res: Response) => {
     res.send("Pong!")
 })
+
+//Get All Users
+app.get("/users", (req: Request, res: Response) => {
+    res.status(200).send(users)
+})
+
+
+//Get All Products
+app.get("/products", (req: Request, res: Response) => {
+    res.status(200).send(products)
+})
+
+//Search Product by name
+app.get("/product/search", (req: Request, res: Response) => {
+    const q = req.query.q as string 
+    const result = products.filter((product) => {
+        return product.name.toLowerCase().includes(q.toLowerCase())
+    })
+    res.status(200).send(result)
+})
