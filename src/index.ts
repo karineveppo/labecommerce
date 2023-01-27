@@ -1,5 +1,5 @@
 import { users, products, purchases, createUser, getAllUsers, createProduct, getAllProducts, getProductById, queryProductsByName, createPurchase, getAllPurchasesFromUserId} from "./database"
-import { CATEGORY } from "./types"
+import { CATEGORY , TUser, TProduct, TPurchase } from "./types"
 import express, { Request, Response} from 'express'; //importando o express, também precisamos importar os objetos Request e Response, sempre entre chaves {}
 import cors from 'cors';
 
@@ -60,4 +60,51 @@ app.get("/product/search", (req: Request, res: Response) => {
         return product.name.toLowerCase().includes(q.toLowerCase())
     })
     res.status(200).send(result)
+})
+
+//Create User
+app.post("/users", (req: Request, res: Response) => {
+
+    const { id, email, password } = req.body as TUser
+
+    const newUser = {
+        id,
+        email, 
+        password
+    }
+
+    users.push(newUser)
+    res.status(201).send("Cadastro realizado com sucesso!")
+})
+
+//Create Product
+app.post("/products", (req: Request, res: Response) => {
+    const { id, name, price, category} = req.body as TProduct
+
+    const newProduct = {
+        id,
+        name, 
+        price,
+        category
+    }
+
+    products.push(newProduct)
+    res.status(201).send("Produto cadastrado com sucesso!")
+    
+})
+
+//Create Purchase
+app.post("/purchases", (req: Request, res: Response) => {
+    const { userId, productId, quantity, totalPrice} = req.body as TPurchase
+
+    const newPurchase = {
+        userId,
+        productId, 
+        quantity,
+        totalPrice
+    }
+
+    purchases.push(newPurchase)
+    res.status(201).send("Compra realizada com sucesso!")
+    
 })
