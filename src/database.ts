@@ -1,4 +1,4 @@
-import { TUser, TProduct, TPurchase } from "./types"
+import { TUser, TProduct, TPurchase, CATEGORY } from "./types"
 
 export const users: TUser[] = [
     {
@@ -44,43 +44,43 @@ export const products: TProduct[] = [
         id: "p001",
         name: "Box Mangá Bleach - vol 1-21",
         price: 1088,
-        category: "Box Mangá"
+        category: CATEGORY.BOX_MANGAS
     },
     {
         id: "p002",
         name: "Box Mangá Demon Slayer - vol 1-23",
         price: 981,
-        category: "Box Mangá"
+        category: CATEGORY.BOX_MANGAS
     },
     {
         id: "p003",
         name: "Box Mangá One Piece - vol 1-23",
         price: 1064,
-        category: "Box Mangá"
+        category: CATEGORY.BOX_MANGAS
     },
     {
         id: "p004",
         name: "Box Mangá Naruto - vol 1-27",
         price: 887,
-        category: "Box Mangá"
+        category: CATEGORY.BOX_MANGAS
     },
     {
         id: "p005",
         name: "Mngá Hunter X Hunter vol.1",
         price: 57,
-        category: "Mangá Avulso"
+        category: CATEGORY.MANGAS_AVULSOS
     },
     {
         id: "p006",
         name: "Tate no Yuusha no Nariagari vol.1 ",
         price: 69,
-        category: "Mangá Avulso"
+        category: CATEGORY.MANGAS_AVULSOS
     },
     {
         id: "p007",
         name: "Hellsing vol.1",
         price: 52,
-        category: "Mangá Avulso"
+        category: CATEGORY.MANGAS_AVULSOS
     }
 ]
 
