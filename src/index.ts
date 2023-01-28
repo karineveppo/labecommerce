@@ -108,3 +108,13 @@ app.post("/purchases", (req: Request, res: Response) => {
     res.status(201).send("Compra realizada com sucesso!")
     
 })
+
+//Get Products by id
+app.get("/products/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+    const result = products.find((product) => {
+        return product.id === id
+    })
+    res.status(200).send(result)
+})
+
