@@ -66,7 +66,7 @@ export const products: TProduct[] = [
     },
     {
         id: "p005",
-        name: "Mngá Hunter X Hunter vol.1",
+        name: "Mangá Hunter X Hunter vol.1",
         price: 57,
         category: CATEGORY.MANGAS_AVULSOS
     },
