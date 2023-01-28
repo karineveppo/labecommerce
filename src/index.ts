@@ -118,3 +118,42 @@ app.get("/products/:id", (req: Request, res: Response) => {
     res.status(200).send(result)
 })
 
+//Get User Purchases by User id
+app.get("/users/:id/purchases", (req: Request, res: Response) => {
+    const id = req.params.id
+    const purchaseIndex = purchases.find((purchase) => purchase.userId === id)
+    res.status(200).send(purchaseIndex)
+})
+
+//Delete User by id
+app.delete("/user/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+
+    const userIndex = users.findIndex((user) => {
+        return user.id === id
+    })
+
+    if (userIndex >= 0) {
+        users.splice(userIndex, 1) 
+        res.status(200).send("User apagado com sucesso!")
+    } else {
+        res.status(404).send("User não encontrado!")
+    }
+})
+
+//Delete Product by id
+app.delete("/product/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+
+    const productIndex = products.findIndex((product) => {
+        return product.id === id
+    })
+
+    if (productIndex >= 0) {
+        products.splice(productIndex, 1) 
+        res.status(200).send("Produto apagado com sucesso!")
+    } else {
+        res.status(404).send("Produto não encontrado!")
+    }
+})
+
