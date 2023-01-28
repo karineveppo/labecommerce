@@ -1,4 +1,4 @@
--- Active: 1674870063847@@127.0.0.1@3306
+-- Active: 1674913743717@@127.0.0.1@3306
 
 CREATE TABLE users (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
@@ -45,3 +45,59 @@ DROP TABLE products;
 
 
 SELECT * FROM products;
+
+SELECT * FROM users;
+
+
+SELECT * FROM products;
+
+
+SELECT * FROM products
+WHERE name = "Mangá Hunter X Hunter vol.1";
+
+
+INSERT INTO users (id, email, password)
+VALUES 
+    ("u008", "felipe@gmail.com", "f7890");
+
+
+INSERT INTO products (id, name, price, category)
+VALUES 
+    ("p008", "DNA Revelado das Emoções", 90, "Livros");
+
+
+SELECT * FROM products
+WHERE id = "p005";
+
+
+DELETE FROM users
+WHERE id = "u002";
+
+
+DELETE FROM products
+WHERE id = "p003";
+
+
+UPDATE users
+SET email = "karineveppo@gmail.com"
+WHERE id = "u003";
+
+
+UPDATE products
+SET name = "Hellsing vol.1 Capa Dura"
+WHERE id = "p007";
+
+
+SELECT * FROM users
+ORDER BY email ASC;
+
+
+SELECT * FROM products
+ORDER BY price ASC
+LIMIT 20
+OFFSET 0;
+
+
+SELECT * FROM products
+WHERE price >= 50 AND price <= 800 
+ORDER BY price ASC;
