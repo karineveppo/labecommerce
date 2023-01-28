@@ -108,3 +108,94 @@ app.post("/purchases", (req: Request, res: Response) => {
     res.status(201).send("Compra realizada com sucesso!")
     
 })
+
+//Get Products by id
+app.get("/products/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+    const result = products.find((product) => {
+        return product.id === id
+    })
+    res.status(200).send(result)
+})
+
+//Get User Purchases by User id
+app.get("/users/:id/purchases", (req: Request, res: Response) => {
+    const id = req.params.id
+    const purchaseIndex = purchases.find((purchase) => purchase.userId === id)
+    res.status(200).send(purchaseIndex)
+})
+
+//Delete User by id
+app.delete("/user/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+
+    const userIndex = users.findIndex((user) => {
+        return user.id === id
+    })
+
+    if (userIndex >= 0) {
+        users.splice(userIndex, 1) 
+        res.status(200).send("User apagado com sucesso!")
+    } else {
+        res.status(404).send("User não encontrado!")
+    }
+})
+
+//Delete Product by id
+app.delete("/product/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+
+    const productIndex = products.findIndex((product) => {
+        return product.id === id
+    })
+
+    if (productIndex >= 0) {
+        products.splice(productIndex, 1) 
+        res.status(200).send("Produto apagado com sucesso!")
+    } else {
+        res.status(404).send("Produto não encontrado!")
+    }
+})
+
+//Edit User by id
+app.put("/user/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+  
+    const newEmail = req.body.email as string | undefined      
+    const newPassword = req.body.password as string | undefined  
+
+    const user = users.find((user) => user.id === id)
+
+
+    if (user) { 
+        user.email = newEmail || user.email
+        user.password = newPassword || user.password
+
+        res.status(200).send("Cadastro atualizado com sucesso!")
+
+    } else {
+        res.status(404).send("User não encontrado!")
+    }
+})
+
+//Edit Product by id
+app.put("/product/:id", (req: Request, res: Response) => {
+    const id = req.params.id
+  
+    const newName = req.body.name as string | undefined   
+    const newPrice = req.body.price as number | undefined   
+    const newCategory = req.body.category as CATEGORY | undefined  
+
+    const product = products.find((product) => product.id === id)
+
+    if (product) {
+        product.name = newName  || product.name
+        product.price = isNaN(newPrice) ? product.price : newPrice
+        product.category = newCategory || product.category
+
+        res.status(200).send("Produto atualizado com sucesso!")
+    } else {
+        res.status(404).send("Produto não encontrado!")
+    }
+})
+
