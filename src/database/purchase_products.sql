@@ -1,4 +1,4 @@
--- Active: 1674913743717@@127.0.0.1@3306
+-- Active: 1675021643466@@127.0.0.1@3306
 
 
 CREATE TABLE purchases_products(
