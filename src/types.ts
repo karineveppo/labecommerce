@@ -1,11 +1,14 @@
+
+
 export enum CATEGORY {
     BOX_MANGAS = "Box Mangás",
     MANGAS_AVULSOS = "Mangás Avulsos",
     LIVROS = "Livros"
 }
 
-export type TUser = {
+export type TUser2 = {
     id: string,
+    name: string,
     email: string, 
     password: string,
 }
@@ -14,7 +17,7 @@ export type TProduct = {
     id: string,
     name: string, 
     price: number,
-    category: CATEGORY
+    category: CATEGORY,
 }
 
 export type TPurchase = {

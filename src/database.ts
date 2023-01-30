@@ -1,38 +1,45 @@
-import { TUser, TProduct, TPurchase, CATEGORY } from "./types"
+import { TUser2, TProduct, TPurchase, CATEGORY } from "./types"
 
-export const users: TUser[] = [
+export const users: TUser2[] = [
     {
         id: "u001",
+        name: "Marcos Benhur",
         email: "marcosbenhur@email.com",
         password: "mb0123",
     },
     {
         id: "u002",
+        name: "karine",
         email: "karine@email.com",
         password: "k1234",
     },
     {
         id: "u003",
+        name: "Marcos Daniel",
         email: "marcosdaniel@email.com",
         password: "md2345",
     },
     {
         id: "u004",
+        name: "Enzo Paschoal",
         email: "enzopaschoal@email.com",
         password: "ep3456",
     },
     {
         id: "u005",
+        name: "Rafaela Karine",
         email: "rafaelakarine@email.com",
         password: "rk4567",
     },
     {
         id: "u006",
+        name: "Flavia Manuela",
         email: "flaviamanuela@email.com",
         password: "fm5678",
     },
     {
         id: "u007",
+        name:"Vinicius Oyama",
         email: "viniciusoyama@email.com",
         password: "vo6789",
     },
@@ -100,18 +107,19 @@ export const purchases: TPurchase[] = [
 ]
 
 //User - CreateUser- cria um novo usuário.
-export function createUser(id: string, email: string, password: string): void {
-    const newUser: TUser = {
+export function createUser(id: string, name: string, email: string, password: string): void {
+    const newUser2: TUser2 = {
         id,
+        name,
         email,
         password
     }
-    users.push(newUser)
+    users.push(newUser2)
     console.log("Cadastro realizado com sucesso")
 }
 
 //GetAllUser - busca todas as pessoas da lista de users
-export function getAllUsers(): TUser[] {
+export function getAllUsers(): TUser2[] {
     return users
 }
 
